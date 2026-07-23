@@ -296,8 +296,6 @@ function initGridParallax() {
   const cards = document.querySelectorAll('.project-card');
   if (cards.length === 0) return;
   
-  if (window.innerWidth <= 768) return; // Desativa no mobile para não bugar a grade feed
-  
   let ticking = false;
   
   function updateGrid() {
