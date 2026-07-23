@@ -186,19 +186,26 @@ button {
 
 /* Logo Overlay Top */
 .hero-logo-wrapper {
-  position: absolute;
-  top: 90px;
-  left: 50%;
-  transform: translateX(-50%);
-  z-index: 10;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
   display: flex;
   align-items: center;
   justify-content: center;
+  padding: 6px 5%;
+  background: rgba(5, 5, 5, 0.4);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  transition: all 300ms ease;
 }
 
 .hero-logo-text {
   font-family: var(--font-display);
-  font-size: 26px;
+  font-size: 18px;
   font-weight: 700;
   letter-spacing: 0.15em;
   text-transform: uppercase;
@@ -209,11 +216,49 @@ button {
   text-shadow: 0 4px 16px rgba(0,0,0,0.8);
 }
 
-.hero-logo-accent {
-  background: var(--gradient-accent);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-style: italic;
+.hero-logo-hollow {
+  -webkit-text-stroke: 1px #ffffff;
+  color: transparent;
+  text-shadow: none;
+}
+
+.hero-logo-filled {
+  color: #ffffff;
+}
+
+.hero-mute-toggle {
+  position: absolute;
+  bottom: 40px;
+  right: 40px;
+  z-index: 20;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  border-radius: 50%;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  cursor: pointer;
+  transition: all 300ms var(--ease-apple);
+}
+
+.hero-mute-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: scale(1.05);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+@media (max-width: 768px) {
+  .hero-mute-toggle {
+    bottom: 24px;
+    right: 24px;
+    width: 44px;
+    height: 44px;
+  }
 }
 
 /* ==========================================================================
@@ -696,11 +741,11 @@ button {
   }
 
   .hero-logo-wrapper {
-    top: 50px;
+    padding: 4px 5%;
   }
 
   .hero-logo-text {
-    font-size: 20px;
+    font-size: 15px;
   }
 
   .portfolio-header {
